@@ -2,9 +2,12 @@
 // moodleform is defined in formslib.php
 require_once("$CFG->libdir/formslib.php");
 
-class simplehtml_form extends \moodleform {
+class simplehtml_form extends \moodleform
+{
     // Add elements to form.
-    public function definition() {
+    public function definition()
+    {
+        global $CFG;
         // A reference to the form is stored in $this->form.
         // A common convention is to store it in a variable, such as `$mform`.
         $mform = $this->_form; // Don't forget the underscore!
@@ -17,12 +20,19 @@ class simplehtml_form extends \moodleform {
 
         // Default value.
         $mform->setDefault('email', 'Please enter email');
+        // add filepicker element.
+        $mform->addElement('filepicker', 'shree_file', get_string('file'), null,
+            [
+                'maxbytes' => 11111111111, // Set max file size.
+                'accepted_types' => '*',
+            ]
+        );
         $this->add_action_buttons(true, get_string('submit'));
     }
 
     // Custom validation should be added here.
-    function validation($data, $files) {
+    function validation($data, $files)
+    {
         return [];
     }
 }
-?>

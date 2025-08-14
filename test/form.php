@@ -10,9 +10,9 @@ class simplehtml_form extends \moodleform
         global $CFG;
         // A reference to the form is stored in $this->form.
         // A common convention is to store it in a variable, such as `$mform`.
-        $mform = $this->_form; // Don't forget the underscore!
+        $mform = $this->_form;
 
-        // Add elements to your form.
+        // Add elements to form.
         $mform->addElement('text', 'email', get_string('email'));
 
         // Set type of element.
@@ -21,12 +21,23 @@ class simplehtml_form extends \moodleform
         // Default value.
         $mform->setDefault('email', 'Please enter email');
         // add filepicker element.
-        $mform->addElement('filepicker', 'shree_file', get_string('file'), null,
+        $maxbytes = get_max_upload_sizes();
+        $mform->addElement('filemanager', 'shree_attachments', 'attachment 1', null,
             [
-                'maxbytes' => 11111111111, // Set max file size.
-                'accepted_types' => '*',
+                'subdirs' => 0, // No subdirectories.
+                'maxbytes' => $maxbytes, // Set max file size.
+                'areamaxbytes' => 10485760, // Set max area size.
+                'maxfiles' => 3, // Limit to one file.
+                'accepted_types' => array('*'),
             ]
         );
+        // $mform->addElement('filepicker', 'shree_file', get_string('file'), null,
+        //     [
+        //         'maxbytes' => 11111111111, // Set max file size.
+        //         'accepted_types' => array('.pdf'),
+        //         'maxfiles' => 1, // Limit to one file.
+        //     ]
+        // );
         $this->add_action_buttons(true, get_string('submit'));
     }
 

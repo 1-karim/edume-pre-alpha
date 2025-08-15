@@ -19,7 +19,7 @@
 # Temporary files including undo
 *~
 #
-/test/uploads
+/local/test/uploads
 /config.php
 /tags
 /TAGS

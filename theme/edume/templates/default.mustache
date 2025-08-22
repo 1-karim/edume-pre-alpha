@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{{ sitename }}</title>
+    {{{ output.standard_head_html }}}
+</head>
+<body {{{ bodyattributes }}}>
+
+{{{ output.standard_top_of_body_html }}}
+
+<nav class="navbar navbar-dark bg-primary">
+    <div class="container">
+        <span class="navbar-brand">{{ sitename }}</span>
+        {{{ output.user_menu }}}
+    </div>
+</nav>
+
+<div class="container mt-4">
+    {{{ output.full_header }}}
+    {{{ output.course_content_header }}}
+    {{{ output.main_content }}}
+    {{{ output.course_content_footer }}}
+</div>
+
+<footer class="text-center mt-5 mb-3 text-muted">
+    <p>&copy; {{ sitename }} - Powered by Moodle</p>
+</footer>
+
+{{{ output.standard_end_of_body_html }}}
+</body>
+</html>

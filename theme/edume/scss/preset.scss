@@ -1,0 +1,49 @@
+// SCSS customizations for Edume
+
+// Override Bootstrap variables
+$brand-primary: #4a4a4a;
+$body-bg: #f5f7fa;
+$font-family-base: 'Roboto', sans-serif;
+
+// Navbar customization
+.navbar {
+    background-color: $brand-primary !important;
+    .navbar-brand {
+        font-weight: 700;
+        font-size: 1.2rem;
+    }
+    .container{
+            background-color: $brand-primary !important;
+        }
+}
+
+body {
+    height: 100%;
+}
+
+// Custom block style
+.block {
+    border-radius: 12px;
+    background: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .05);
+    padding: 10px;
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #121212;
+        color: #eee;
+    }
+
+    .container {
+        background-color: #1e1e1e;
+        border-radius: 12px;
+    }
+
+    .navbar {
+        background-color: #222;
+        .container{
+            background-color: $brand-primary !important;
+        }
+    }
+}

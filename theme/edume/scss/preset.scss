@@ -1,0 +1,109 @@
+// SCSS customizations for Edume
+
+// 🎨 Color palette
+$brand-primary: #556B2F; // olive green
+$brand-primary-dark: #3B4D1C; // darker olive
+$brand-secondary: #E6DDC4; // sand beige
+$body-bg: #F5F5DC; // soft beige
+$text-color: #2F2F2F; // dark brown
+
+$font-family-base: 'Roboto', sans-serif;
+.bg-primary {
+    background-color: $brand-primary-dark !important;
+}   
+// Navbar customization
+.navbar {
+    background-color: $brand-primary !important;
+    .navbar-brand {
+        font-weight: 700;
+        font-size: 1.2rem;
+        color: $brand-secondary !important;
+    }
+    .container {
+        background-color: $brand-primary !important;
+    }
+}
+
+body {
+    height: 100%;
+    background-color: $body-bg;
+    color: $text-color;
+}
+
+// Custom block style
+.block {
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .05);
+    padding: 10px;
+    border: 1px solid $brand-secondary;
+}
+
+// Dark mode
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #1a1a1a;
+        color: #ddd;
+    }
+
+    .container {
+        background-color: #262626;
+        border-radius: 12px;
+    }
+    .main-inner{
+        background-color: #262626;
+    }
+    .navbar {
+        background-color: $brand-primary-dark;
+        .container {
+            background-color: $brand-primary-dark !important;
+        }
+    }
+}
+
+// Navigation menu
+.edume-nav {
+    background: $brand-primary;
+    border-bottom: 2px solid $brand-secondary;
+    padding: 0.75rem 2rem;
+    ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    li {
+        position: relative;
+    }
+    a {
+        display: block;
+        text-decoration: none;
+        color: $brand-secondary;
+        font-weight: 500;
+        font-size: 1rem;
+        padding: 0.5rem 0;
+        transition: color 0.2s ease, border-bottom 0.2s ease;
+
+        &:hover {
+            color: lighten($brand-secondary, 10%);
+        }
+
+        // underline effect on hover
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: $brand-secondary;
+            transition: width 0.3s ease;
+        }
+        &:hover::after {
+            width: 100%;
+        }
+    }
+}

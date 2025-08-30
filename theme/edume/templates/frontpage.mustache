@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>{{ sitename }}</title>
+    {{{ output.standard_head_html }}}
+
+    <!-- Flickity CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <!-- Flickity Js -->
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+</head>
+
+<body {{{ bodyattributes }}}>
+
+    {{{ output.standard_top_of_body_html }}}
+
+    <!-- Hero Section -->
+    <section class="hero bg-primary text-white py-5 text-center">
+        <div class="container">
+            <h1 class="display-4">{{ sitename }}</h1>
+            <p class="lead">Transform your training programs with our e-learning platform</p>
+            <a href="#features" class="btn btn-light btn-lg mt-3">Discover Features</a>
+        </div>
+    </section>
+
+    <!-- Header / Navigation -->
+    <header class="site-header mb-4">
+        {{> theme_edume/core/header }}
+    </header>
+    
+    <div class="container-fluid">
+
+        <!-- Carousel Section -->
+
+    {{#slides.0}} {{! Only render carousel if at least one slide exists }}
+        <div class="main-carousel" data-flickity='{ "cellAlign": "left", "contain": true }'>
+            
+
+                {{#slides}}
+                <div class="carousel-cell ">
+                        <img src="{{image}}" class="d-block w-100" alt="{{title}}">
+                    {{#title}}
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>{{title}}</h5>
+                        {{#caption}}<p>{{{caption}}}</p>{{/caption}}
+                    </div>
+                    {{/title}}
+                </div>
+                {{/slides}}
+        </div>
+        {{/slides.0}}
+
+        {{^slides}}
+        <div class="alert alert-info m-3">
+            No slides yet. Add them in: Site administration → Appearance → Themes → Edume.
+        </div>
+        {{/slides}}
+        <!-- Main Content (Moodle placeholder) -->
+        <div class="row mt-5">
+            <main class="col-12">
+                {{{ output.main_content }}}
+            </main>
+        </div>
+
+    </div>
+
+{{! Flickity  !}}
+       
+
+        <!-- Main Content (Moodle placeholder) -->
+        <div class="row mt-5">
+            <main class="col-12">
+                {{{ output.main_content }}}
+            </main>
+        </div>
+
+    </div>
+    <!-- Footer -->
+    <footer class="text-center mt-5 mb-3 text-muted">
+        <p>&copy; {{ sitename }} - Powered by itself</p>
+    </footer>
+    {{{ output.standard_end_of_body_html }}}

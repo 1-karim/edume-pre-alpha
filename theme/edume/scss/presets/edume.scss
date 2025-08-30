@@ -1,0 +1,191 @@
+// SCSS customizations for Edume
+// edume.scss
+@import "slider";
+// Override Bootstrap variables
+$primary: #4a4a4a;
+$body-bg: #f5f7fa;
+$font-family-base: 'Roboto', sans-serif;
+.bg-primary{
+    background-color: $primary !important;
+}
+// Navbar customization
+.navbar {
+    background-color: $brand-primary !important;
+    .navbar-brand {
+        font-weight: 700;
+        font-size: 1.2rem;
+    }
+    .container{
+            background-color: $brand-primary !important;
+        }
+}
+
+body {
+    height: 100%;
+}
+
+// Custom block style
+.block {
+    border-radius: 12px;
+    background: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .05);
+    padding: 10px;
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #121212;
+        color: #eee;
+    }
+
+    .container {
+        background-color: #1e1e1e;
+        border-radius: 12px;
+    }
+#topofscroll{
+        background-color: #1e1e1e;
+    
+}
+    .navbar {
+        background-color: #222;
+        .container{
+            background-color: $brand-primary !important;
+        }
+    }
+}
+.edume-nav {
+    background: #e60505; // white background
+    border-bottom: 1px solid #e5e5e5;
+    padding: 0.75rem 2rem;
+    ul {
+        display: flex;
+        justify-content: center; // center the menu
+        align-items: center;
+        gap: 2rem; // space between items
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    li {
+        position: relative;
+    }
+    a {
+        display: block;
+        text-decoration: none;
+        color: #333; // default text color
+        font-weight: 500;
+        font-size: 1rem;
+        padding: 0.5rem 0;
+        transition: color 0.2s ease, border-bottom 0.2s ease;
+
+        &:hover {
+            color: #0073e6; // Moodle’s primary blue
+        }
+
+        // underline effect on hover
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: #0073e6;
+            transition: width 0.3s ease;
+        }
+        &:hover::after {
+            width: 100%;
+        }
+    }
+}
+
+
+/* ============================
+   Hero Carousel Styling
+   ============================ */
+
+#edumeCarousel {
+  position: relative;
+  width: 100%;
+  height: 50vh; // change to 100vh for full-screen hero
+
+  .carousel-inner {
+    height: 100%;
+
+    .carousel-item {
+      height: 100%;
+
+      img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+      }
+
+      // Gradient overlay for readability
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: linear-gradient(
+          rgba(0, 0, 0, 0.5) 0%,
+          rgba(0, 0, 0, 0.3) 40%,
+          rgba(0, 0, 0, 0.7) 100%
+        );
+      }
+    }
+  }
+
+  .carousel-caption {
+    bottom: 20%;
+    z-index: 2;
+    text-align: left;
+
+    h5 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+    }
+
+    p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+    }
+
+    a.btn {
+      margin-top: 1rem;
+      padding: 0.75rem 1.5rem;
+      font-size: 1.1rem;
+      border-radius: 50px;
+      background: #007bff; // primary color
+      color: #fff;
+
+      &:hover {
+        background: darken(#007bff, 10%);
+      }
+    }
+  }
+
+  .carousel-indicators {
+    bottom: 10px;
+
+    [data-bs-target] {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.6);
+
+      &.active {
+        background-color: #007bff;
+      }
+    }
+  }
+
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.7));
+  }
+}
